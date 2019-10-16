@@ -4,5 +4,6 @@
     <file url="file://$PROJECT_DIR$/RPCApi" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RPCClient" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/RPCServer" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/RPCZookeeper" charset="UTF-8" />
   </component>
 </project>

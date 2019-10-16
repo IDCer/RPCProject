@@ -30,4 +30,12 @@ public class HeartbeatPacket implements Serializable {
     public void setInfo(Map<String, Object> info) {
         this.info = info;
     }
+
+    public String getSrcAdress() {
+        return srcAdress;
+    }
+
+    public void setSrcAdress(String srcAdress) {
+        this.srcAdress = srcAdress;
+    }
 }

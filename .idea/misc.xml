@@ -6,6 +6,7 @@
         <option value="$PROJECT_DIR$/RPCApi/pom.xml" />
         <option value="$PROJECT_DIR$/RPCClient/pom.xml" />
         <option value="$PROJECT_DIR$/RPCServer/pom.xml" />
+        <option value="$PROJECT_DIR$/RPCZookeeper/pom.xml" />
       </list>
     </option>
   </component>

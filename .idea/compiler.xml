@@ -9,6 +9,7 @@
         <module name="RPCApi" />
         <module name="RPCServer" />
         <module name="RPCClient" />
+        <module name="RPCZookeeper" />
         <module name="rpc-api" />
         <module name="rpc-server" />
         <module name="rpc-client" />
@@ -21,10 +22,12 @@
       <module name="RPCApi" target="1.8" />
       <module name="RPCClient" target="1.8" />
       <module name="RPCServer" target="1.8" />
+      <module name="RPCZookeeper" target="1.8" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="RPCZookeeper" options="-parameters" />
       <module name="rpc-api" options="-parameters" />
       <module name="rpc-client" options="-parameters" />
       <module name="rpc-server" options="-parameters" />

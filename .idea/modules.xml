@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/RPCClient/RPCClient.iml" filepath="$PROJECT_DIR$/RPCClient/RPCClient.iml" />
       <module fileurl="file://$PROJECT_DIR$/RPCProject.iml" filepath="$PROJECT_DIR$/RPCProject.iml" />
       <module fileurl="file://$PROJECT_DIR$/RPCServer/RPCServer.iml" filepath="$PROJECT_DIR$/RPCServer/RPCServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RPCZookeeper/RPCZookeeper.iml" filepath="$PROJECT_DIR$/RPCZookeeper/RPCZookeeper.iml" />
       <module fileurl="file://$PROJECT_DIR$/RPCApi/rpc-api.iml" filepath="$PROJECT_DIR$/RPCApi/rpc-api.iml" />
       <module fileurl="file://$PROJECT_DIR$/RPCClient/rpc-client.iml" filepath="$PROJECT_DIR$/RPCClient/rpc-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/RPCServer/rpc-server.iml" filepath="$PROJECT_DIR$/RPCServer/rpc-server.iml" />
