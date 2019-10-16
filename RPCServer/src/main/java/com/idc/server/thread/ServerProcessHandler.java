@@ -11,13 +11,10 @@ import java.util.Map;
 
 
 public class ServerProcessHandler implements Runnable {
-    // 持有一个客户端会话对象
+    // 客户端会话对象
     private Socket client;
 
-    // 持有服务器发布服务
-//    private Object service;
-
-    // the service on server
+    // 用于记录服务和服务地址的映射表
     private Map<String, Object> handlerMap;
 
     // 构造函数
@@ -62,27 +59,18 @@ public class ServerProcessHandler implements Runnable {
     }
 
     private Object invoke(RPCRequest rpcRequest) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        System.out.println("Server is invoking some method...");
         System.out.println("来自主机" + client.getLocalAddress() + ",端口:" +client.getLocalPort() + "调用了方法");
         // 获取客户端传来的参数
         Object [] parameters = rpcRequest.getParameters();
         Class [] parameterTypes = new Class[parameters.length];
+        // 设置参数类型
         for (int i = 0, length = parameters.length; i < length; i++) {
             parameterTypes[i] = parameters[i].getClass();
-            System.out.println("parameterTypes[i]" + parameterTypes[i]);
-            System.out.println("parameters[i]" + parameters[i].getClass());
         }
-
-        // get service from Map
+        // 获取服务的类对象
         Object service = handlerMap.get(rpcRequest.getClassName());
 
-        System.out.println("请求类名:" + rpcRequest.getClassName());
-        System.out.println("Request is:" + rpcRequest);
-        System.out.println("parameterTypes is:" + parameterTypes);
-
-        System.out.println("服务类别:" + service.getClass());
-
-        // 获取方法
+        // 获取这个服务类的方法
         Method method = service.getClass().getMethod(rpcRequest.getMethodName(), parameterTypes);
         // 返回方法调用结果
         return method.invoke(service, parameters);

@@ -4,9 +4,18 @@ import com.idc.api.interfaces.RPCSignal;
 
 import java.io.Serializable;
 
+/**
+ * 客户端和服务端传输简讯的介质
+ */
+
 public class RPCRequest implements RPCSignal, Serializable {
+    // 类名
     private String className;
+
+    // 方法名
     private String methodName;
+
+    // 参数列表
     private Object [] parameters;
 
     public String getClassName() {

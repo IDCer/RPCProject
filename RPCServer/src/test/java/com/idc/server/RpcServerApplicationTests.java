@@ -17,15 +17,14 @@ public class RpcServerApplicationTests {
 		// 创建一个注册中心
 		RPCRegistryCenter rpcRegistryCenter = new RPCRegisterCenterImpl();
 
-		// address
+		// 服务器运行ip地址
 		String address = "127.0.0.1:11234";
 		RPCServer rpcServer = new RPCServer(rpcRegistryCenter, address);
 
-		// blind service
+		// 绑定服务
 		rpcServer.bind(new MessageServiceImp());
 
-		// publish
-//        rpcServer.new_export();
+		// 发布服务
+        rpcServer.export();
 	}
-
 }
