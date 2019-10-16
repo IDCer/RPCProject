@@ -1,5 +1,6 @@
 package com.idc.server;
 
+import com.idc.api.heartbeat.HeartbeatClient;
 import com.idc.api.interfaces.RPCAnnotation;
 import com.idc.api.interfaces.RPCRegistryCenter;
 import com.idc.server.thread.ServerProcessHandler;
@@ -10,6 +11,9 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class RPCServer {
 
@@ -39,6 +43,9 @@ public class RPCServer {
                 registryCenter.register(interfaceName, addressService);
                 System.out.println("服务注册成功!服务名:{" + interfaceName + "},地址:{" + addressService + "}");
             });
+            //定时发送心跳包
+            ScheduledExecutorService service = Executors.newSingleThreadScheduledExecutor();
+            service.scheduleAtFixedRate(new HeartbeatClient(this),0,1, TimeUnit.MINUTES);
 
             while (true) {
                 // 阻塞监听client端线程
@@ -78,5 +85,13 @@ public class RPCServer {
     public RPCServer(RPCRegistryCenter rpcRegistryCenter, String addressService) {
         this.registryCenter = rpcRegistryCenter;
         this.addressService = addressService;
+    }
+
+    public static Map<String, Object> getHandlerMapping() {
+        return HANDLER_MAPPING;
+    }
+
+    public String getAddressService() {
+        return addressService;
     }
 }
